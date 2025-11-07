@@ -13,7 +13,7 @@ var dialogue_items: Array[Dictionary] = [
 	},
 	{
 		"expression": expressions["sad"],
-		"text": "... and it is a little bit complicated.",
+		"text": "... and it is a little bit complicated",
 	},
 	{
 		"expression": expressions["happy"],
@@ -29,15 +29,11 @@ var dialogue_items: Array[Dictionary] = [
 	},
 	{
 		"expression": expressions["happy"],
-		"text": "I am cute!",
+		"text": "I am cute",
 	},
 	{
 		"expression": expressions["happy"],
 		"text": "and so are you!",
-	},
-	{
-		"expression": expressions["regular"],
-		"text": "Did I get it right? Did I?",
 	},
 	{
 		"expression": expressions["happy"],
@@ -58,7 +54,6 @@ func _ready() -> void:
 	next_button.pressed.connect(advance)
 
 
-## Draws the current text to the rich text element
 func show_text() -> void:
 	var current_item := dialogue_items[current_item_index]
 	rich_text_label.text = current_item["text"]
@@ -73,6 +68,8 @@ func show_text() -> void:
 	audio_stream_player.play(sound_start_position)
 	tween.finished.connect(audio_stream_player.stop)
 
+	slide_in()
+
 
 func advance() -> void:
 	current_item_index += 1
@@ -80,3 +77,13 @@ func advance() -> void:
 		get_tree().quit()
 	else:
 		show_text()
+
+
+func slide_in() -> void:
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUART)
+	tween.set_ease(Tween.EASE_OUT)
+	body.position.x = 200.0
+	tween.tween_property(body, "position:x", 0.0, 0.3)
+	body.modulate.a = 0.0
+	tween.parallel().tween_property(body, "modulate:a", 1.0, 0.2)
