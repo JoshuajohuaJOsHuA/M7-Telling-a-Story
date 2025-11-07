@@ -29,6 +29,7 @@ func show_text() -> void:
 	var sound_max_offset := audio_stream_player.stream.get_length() - text_appearing_duration
 	var sound_start_position := randf() * sound_max_offset
 	audio_stream_player.play(sound_start_position)
+	tween.finished.connect(audio_stream_player.stop)
 
 func advance() -> void:
 	current_item_index += 1
