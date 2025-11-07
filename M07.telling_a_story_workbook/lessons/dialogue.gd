@@ -34,27 +34,27 @@ var dialogue_items: Array[Dictionary] = [
 	},
 	{
 		"expression": expressions["regular"],
-		"text": "Well check this out",
+		"text": "[shake]Well check this out[/shake]",
 		"character": bodies["sophia"],
 	},
 	{
 		"expression": expressions["happy"],
-		"text": "Roses are Red!",
+		"text": "[b]Roses are Red!",
 		"character": bodies["sophia"],
 	},
 	{
 		"expression": expressions["happy"],
-		"text": "Violets are Blue",
+		"text": "[b]Violets are Blue",
 		"character": bodies["sophia"],
 	},
 	{
 		"expression": expressions["happy"],
-		"text": "You are cute",
+		"text": "[b]You are cute",
 		"character": bodies["sophia"],
 	},
 	{
 		"expression": expressions["happy"],
-		"text": "and I am too!",
+		"text": "[wave]and I am too![/wave]",
 		"character": bodies["sophia"],
 	},
 ]
